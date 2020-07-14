@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "记账",
+  "usingComponents": {
+    "note": "/pages/main/components/Note"
+  }
+}

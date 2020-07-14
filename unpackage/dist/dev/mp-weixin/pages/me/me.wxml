@@ -1,0 +1,1 @@
+<view class="container data-v-288fa394"><view class="header data-v-288fa394"><image src="{{userInfo.avatarUrl}}" alt class="_img data-v-288fa394"></image><label class="_span data-v-288fa394">{{userInfo.nickName}}</label></view><menu-list vue-id="8e55f700-1" menuList="{{menuData}}" class="data-v-288fa394" bind:__l="__l"></menu-list></view>

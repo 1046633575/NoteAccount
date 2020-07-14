@@ -1,0 +1,1 @@
+<view class="container data-v-eec6b550"><view class="introduce data-v-eec6b550"><image class="logo _img data-v-eec6b550" src="{{$root.m0}}" alt></image><text class="title data-v-eec6b550">松鼠账单，记账从今天开始</text></view><view class="contact data-v-eec6b550">开发者：不够完美</view></view>
