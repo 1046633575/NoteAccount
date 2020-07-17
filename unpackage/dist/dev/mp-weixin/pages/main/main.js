@@ -140,7 +140,12 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var List = function List() {__webpack_require__.e(/*! require.ensure | pages/main/components/List */ "pages/main/components/List").then((function () {return resolve(__webpack_require__(/*! ./components/List.vue */ 64));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Add = function Add() {__webpack_require__.e(/*! require.ensure | components/my-add/add */ "components/my-add/add").then((function () {return resolve(__webpack_require__(/*! ../../components/my-add/add.vue */ 71));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var List = function List() {__webpack_require__.e(/*! require.ensure | pages/main/components/List */ "pages/main/components/List").then((function () {return resolve(__webpack_require__(/*! ./components/List.vue */ 73));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Add = function Add() {__webpack_require__.e(/*! require.ensure | components/my-add/add */ "components/my-add/add").then((function () {return resolve(__webpack_require__(/*! ../../components/my-add/add.vue */ 80));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
 
 
 
@@ -172,17 +177,36 @@ __webpack_require__.r(__webpack_exports__);
       date: '',
       income: 25,
       pay: 99,
-      list: [] };
+      list: [],
+      buttonPosi: {
+        left: '',
+        top: '' },
 
+      addBtnOpacity: 0 //添加按钮设置 如果不设置用户将看到小球移动动画
+    };
   },
   created: function created() {
     this.getNowTime();
+    this.setButtonPosi(); //小程序movable-view bug, left、top可设置，right、bottom设置无效,所以使用js设置初始位置
   },
   onShow: function onShow() {//页面显示重新取数据
     this.getMonthSum();
     this.getNoteData();
   },
   methods: {
+    setButtonPosi: function setButtonPosi() {var _this = this; //设置添加按钮的初始位置
+      var res = uni.getSystemInfoSync();
+      var query = wx.createSelectorQuery();
+      query.select('.add').boundingClientRect(function (rect) {
+        _this.buttonPosi.top = res.windowHeight - rect.height - 40;
+        _this.buttonPosi.left = res.windowWidth - rect.width - 10;
+        setTimeout(function () {
+          _this.addBtnOpacity = 10;
+        }, 200);
+      });
+      query.selectViewport().scrollOffset(); //不知道为什么少了这两段代码就获取不到 上面元素的信息
+      query.exec(function (res) {});
+    },
     getNowTime: function getNowTime() {
       var date = new Date();
       var dateNow = "".concat(date.getFullYear(), "-").concat(date.getMonth() + 1 < 10 ? "0".concat(date.getMonth() + 1) : date.getMonth() + 1);
@@ -196,22 +220,22 @@ __webpack_require__.r(__webpack_exports__);
     DateChange: function DateChange(e) {
       this.date = e.detail.value;
     },
-    getMonthSum: function getMonthSum() {var _this = this;
+    getMonthSum: function getMonthSum() {var _this2 = this; //获取月度数据
       this.$ajax('/bill/getMonthSum', {
         timeStart: this.date }).
       then(function (res) {
         if (res.status) {
-          _this.monthSum = res.data;
+          _this2.monthSum = res.data;
         }
       });
     },
-    getNoteData: function getNoteData() {var _this2 = this;
+    getNoteData: function getNoteData() {var _this3 = this;
       var dt = {
         timeStart: this.date };
 
       this.$ajax('/bill/query', dt).then(function (res) {
         if (res.status) {
-          _this2.formatData(res.data);
+          _this3.formatData(res.data);
         }
       });
     },

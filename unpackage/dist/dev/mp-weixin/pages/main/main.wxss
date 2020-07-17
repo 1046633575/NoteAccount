@@ -27,6 +27,31 @@
 .container.data-v-8a9b9018 {
   height: 100%;
 }
+.container .move-box.data-v-8a9b9018 {
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100000;
+}
+.container .move-box .add-button.data-v-8a9b9018 {
+  pointer-events: auto;
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  z-index: 9999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
 .container .header.data-v-8a9b9018 {
   height: 180rpx;
   padding: 30rpx;

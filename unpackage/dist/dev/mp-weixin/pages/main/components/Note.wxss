@@ -88,7 +88,33 @@
   margin-top: 60rpx;
 }
 .container .translate input.data-v-2d118c80 {
+  width: 100%;
   border-bottom: 1px solid #ddd;
+}
+.container .datetime.data-v-2d118c80 {
+  margin-top: 30rpx;
+}
+.container .datetime .content.data-v-2d118c80 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.container .item.data-v-2d118c80 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.container .item .key.data-v-2d118c80 {
+  display: inline-block;
+  padding-right: 20rpx;
+  color: #333;
+  white-space: nowrap;
 }
 .container .btns.data-v-2d118c80 {
   width: 100%;
