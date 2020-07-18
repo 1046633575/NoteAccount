@@ -152,13 +152,16 @@ __webpack_require__.r(__webpack_exports__);
 
       {
         icon: 'friend',
-        name: '关于我们' },
-
-      {
-        icon: 'share',
-        name: '分享给朋友' }] };
+        name: '关于我们' }] };
 
 
+
+  },
+  onShareAppMessage: function onShareAppMessage(res) {
+    return {
+      title: '松鼠账单，记账从今天开始!',
+      path: '/pages/main/main',
+      imageUrl: 'https://www.bgwm.fun/static/upload_wechat_share.png' };
 
   },
   mounted: function mounted() {

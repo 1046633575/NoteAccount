@@ -126,6 +126,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   props: {
@@ -137,6 +144,17 @@ var _default =
   data: function data() {
     return {};
 
+
+  },
+  onShow: function onShow() {
+    console.log('oo');
+  },
+  onShareAppMessage: function onShareAppMessage(res) {
+    console.log('ss');
+    return {
+      title: '松鼠账单，记账从今天开始!',
+      path: '/pages/main/main',
+      imageUrl: 'https://www.bgwm.fun/static/upload_wechat_share.jpg' };
 
   },
   methods: {
