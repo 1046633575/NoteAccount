@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "首页",
-  "usingComponents": {
-    "list": "/pages/main/components/List",
-    "add": "/components/my-add/add"
-  }
-}

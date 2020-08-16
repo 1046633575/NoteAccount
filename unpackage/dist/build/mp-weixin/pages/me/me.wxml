@@ -1,1 +1,0 @@
-<view class="container data-v-4068e49d"><view class="header data-v-4068e49d"><image src="{{userInfo.avatarUrl}}" alt class="_img data-v-4068e49d"></image><label class="_span data-v-4068e49d">{{userInfo.nickName}}</label></view><menu-list vue-id="8e55f700-1" menuList="{{menuData}}" class="data-v-4068e49d" bind:__l="__l"></menu-list></view>
