@@ -3,8 +3,8 @@
 		<view class="title">
 			<view class="date"><text>{{date}}</text></view>
 			<view class="flow">
-				<text class="income">+ {{income}}</text>
-				<text class="pay">- {{pay}}</text>
+				<text class="income">+ {{income | formatPrice}}</text>
+				<text class="pay">- {{pay | formatPrice}}</text>
 			</view>
 		</view>
 		<view class="content">
@@ -52,6 +52,11 @@
 				uni.navigateTo({
 					url: `./pages/add_account/add_account?data=${JSON.stringify(item)}`
 				});
+			}
+		},
+		filters: {
+			formatPrice(val) {
+				return val.toFixed(2);
 			}
 		}
 	}

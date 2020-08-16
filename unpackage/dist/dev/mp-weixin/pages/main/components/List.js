@@ -81,6 +81,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var f0 = _vm._f("formatPrice")(_vm.income)
+
+  var f1 = _vm._f("formatPrice")(_vm.pay)
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        f0: f0,
+        f1: f1
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -168,6 +181,11 @@ var _default =
       uni.navigateTo({
         url: "./pages/add_account/add_account?data=".concat(JSON.stringify(item)) });
 
+    } },
+
+  filters: {
+    formatPrice: function formatPrice(val) {
+      return val.toFixed(2);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
