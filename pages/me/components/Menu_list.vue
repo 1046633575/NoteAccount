@@ -30,22 +30,10 @@
 
 			}
 		},
-		onShow: function() {
-			console.log('oo')
-		},
-		onShareAppMessage(res) {
-			console.log('ss')
-			return {
-				title: '松鼠账单，记账从今天开始!',
-				path: '/pages/main/main',
-				imageUrl: 'https://www.bgwm.fun/static/upload_wechat_share.jpg'
-			}
-		},
 		methods: {
 			toPage(item) {
 				console.log(item)
 				if (item.icon == 'friend') {
-					console.log('匹配')
 					uni.navigateTo({
 						url: '/pages/me/pages/about_us/about_us'
 					});

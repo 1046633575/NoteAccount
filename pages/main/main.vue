@@ -21,7 +21,7 @@
 			</view>
 		</view>
 		<List :date="item.date" :income="item.income" :pay="item.pay" :dataList="item.list" v-for="(item,index) in list" :key="index"></List>
-		<view class="no-msg" v-if="list.length == 0">本月没有数据哦...</view>
+		<view class="no-msg" v-if="list.length == 0 && getDataFlag">本月没有数据哦...</view>
 	</view>
 </template>
 
@@ -33,14 +33,13 @@
 			return {
 				monthSum: {},
 				date: '',
-				income: 25,
-				pay: 99,
 				list: [],
 				buttonPosi: {
 					left: '',
 					top: ''
 				},
-				addBtnOpacity: 0, //添加按钮设置 如果不设置用户将看到小球移动动画
+				addBtnOpacity: 0, //添加按钮设置 如果不设置用户将看到小球移动动画,
+				getDataFlag: false,  //数据是否请求过了  未请求到时不显示“本月没有数据”
 			}
 		},
 		created() {
@@ -88,10 +87,12 @@
 				});
 			},
 			getNoteData() {
+				this.$showLoading();
 				const dt = {
 					timeStart: this.date
 				};
 				this.$ajax('/bill/query', dt).then(res => {
+					this.getDataFlag = true;
 					if (res.status) {
 						this.formatData(res.data);
 					}
@@ -126,6 +127,7 @@
 					});
 				});
 				this.list = arr;
+				this.$hideLoading();
 			}
 		},
 		components: {

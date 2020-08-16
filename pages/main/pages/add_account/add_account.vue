@@ -46,7 +46,7 @@
 			}
 		},
 		onLoad(option) {
-			if(!option.data) {
+			if (!option.data) {
 				return;
 			}
 			const data = JSON.parse(option.data);
@@ -103,6 +103,7 @@
 		height: 100%;
 		display: flex;
 		flex-direction: column;
+		overflow-y: scroll;
 
 		.status_bar {
 			width: 100%;
